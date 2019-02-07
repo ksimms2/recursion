@@ -9,10 +9,14 @@ public class Palindrome {
   }
 
   private static boolean testSimple(String candidate){
-    return (candidate.length() <= 1)
-    || (candidate.charAt(0) == candidate.charAt(candidate.length() - 1)
-    && testSimple(candidate.substring(1, candidate.length() - 1)));
-
+    boolean result = true;
+    for (int i = 0, j = candidate.length() - 1 ; i < j; i++, j--){
+      if(candidate.charAt(i) != candidate.charAt(j)) {
+        result = false;
+        break;
+      }
+    }
+    return result;
   }
 
 }
